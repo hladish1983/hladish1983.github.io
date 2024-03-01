@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A.Hladish Assignment 1</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <title>A.Hladish Assignment 1</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.28/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+<script>
+    require([
+      "esri/config", 
+      "esri/Map", 
+      "esri/views/MapView", 
+      "esri/widgets/BasemapToggle"], function (
+  esriConfig,
+  Map,
+  MapView,
+  BasemapToggle
+) {
+      
+  esriConfig.apiKey =
+    "AAPK26eaf05ce767497085d23a55fabd2f25dxRfVH9sbqEoZIZ4WtFd9O5rFrK2mZB1nFqbyy8Ssklom4bKlfG1HWOgZ2CuJtcC";
+
+  const map = new Map({
+    basemap: "arcgis/topographic" // basemap styles service
+  });
+  
+  const view = new MapView({
+    map: map,
+    center: [-118.805, 34.027], // Longitude, latitude 
+    zoom: 13, // Zoom level
+    container: "viewDiv" // Div element
+  });
+      
+      const toggle = new BasemapToggle({
+        view: view,
+        nextBasemap: "hybrid"
+      });
+      view.ui.add(toggle, "top-right")
+});
+
+</script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
